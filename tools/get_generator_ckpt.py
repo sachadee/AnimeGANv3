@@ -9,7 +9,7 @@ from utils import check_folder
 import tensorflow as tf
 from net import generator
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 def parse_args():
     desc = "AnimeGANv3"
