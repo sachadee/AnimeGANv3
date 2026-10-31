@@ -2,7 +2,7 @@ from AnimeGANv3_shinkai import AnimeGANv3
 import argparse
 from tools.utils import *
 import os, time
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 """parsing and configuration"""
 def parse_args():
@@ -71,8 +71,8 @@ def train():
 
     # open session
     gpu_options = tf.GPUOptions(allow_growth=True)
-    with tf.Session(config=tf.ConfigProto(allow_soft_placement=True,inter_op_parallelism_threads=8,
-                               intra_op_parallelism_threads=8,gpu_options=gpu_options)) as sess:
+    with tf.Session(config=tf.ConfigProto(allow_soft_placement=True,inter_op_parallelism_threads=2,
+                               intra_op_parallelism_threads=2,gpu_options=gpu_options)) as sess:
     # with tf.Session() as sess:
         gan = AnimeGANv3(sess, args)
         # build graph
